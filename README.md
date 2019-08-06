@@ -1,2 +1,4 @@
-# healthcare-frontend
-Frontend Repo for coding challenge
+## healthcare-frontend
+# Running Instructions
+   - Clone this repository
+   - In terminal, run "npm install && npm start"
