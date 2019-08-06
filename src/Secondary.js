@@ -12,11 +12,28 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-      chooseSecondary: () => dispatch({type: 'CHOOSE_SECONDARY'})
+      chooseSecondary: (result) => dispatch({type: 'CHOOSE_SECONDARY', payload: result})
    }
 }
 
 class Secondary extends Component {
+   updateFrequency = (selection) => {
+      const result = this.props.activeResultsList.find(result => result.title === selection)
+      this.props.chooseSecondary(result)
+      fetch(`http://localhost:3000/api/results/${result.id}`, {
+         method: 'PATCH',
+         headers: {
+            'Content-Type': 'application/json',
+            'Accept':'application/json'
+         },
+         body: JSON.stringify({
+            frequency: result.frequency += 1
+         })
+      })
+      .then(res => res.json())
+      .then(console.log("patched through"))
+   }
+
    render() {
    const resultOptions = this.props.activeResultsList.slice(1).map(result => {
       return {key: result.id, text: result.title, value: result.title}
@@ -30,7 +47,7 @@ class Secondary extends Component {
                fluid 
                selection 
                options={resultOptions}
-               onChange={() => this.props.chooseSecondary()}
+               onChange={(event) => this.updateFrequency(event.target.innerText)}
                />
                {this.props.secondaryChoice ? <StartOver /> : <></>}
          </div>

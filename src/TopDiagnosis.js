@@ -35,7 +35,7 @@ class TopDiagnosis extends Component {
          })
       })
       .then(res => res.json())
-      .then(data => console.log("patch worked"))
+      .then(console.log("patched through"))
    }
 
    render() {
