@@ -2,6 +2,7 @@ const initialState = {
    symptoms: [],
    activeSymptom: null,
    activeResultsList: [],
+   userComplete: false
 }
 
 function reducer(state = initialState, action) {
@@ -12,6 +13,10 @@ function reducer(state = initialState, action) {
          return {...state, activeSymptom: action.payload}
       case 'ACTIVATE_RESULTS_LIST':
          return {...state, activeResultsList: action.payload}
+      case 'USER_COMPLETE':
+         return {...state, userComplete: true}
+      case 'START_OVER':
+         return {...state, activeSymptom: null, activeResultsList: [], userComplete: false}
       default:
          return state
    }
