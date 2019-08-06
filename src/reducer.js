@@ -4,7 +4,8 @@ const initialState = {
    activeResultsList: [],
    primaryChoice: false,
    goingToSecondary: false,
-   secondaryChoice: false
+   secondaryChoice: false,
+   activeResult: null
 }
 
 function reducer(state = initialState, action) {
@@ -16,7 +17,7 @@ function reducer(state = initialState, action) {
       case 'ACTIVATE_RESULTS_LIST':
          return {...state, activeResultsList: action.payload}
       case 'CHOOSE_PRIMARY':
-         return {...state, primaryChoice: true}
+         return {...state, primaryChoice: true, activeResult: action.payload}
       case 'GO_TO_SECONDARY':
          return {...state, goingToSecondary: true}
       case 'CHOOSE_SECONDARY':

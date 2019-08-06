@@ -10,7 +10,8 @@ const mapStateToProps = state => {
       activeResultsList: state.activeResultsList,
       primaryChoice: state.primaryChoice,
       goingToSecondary: state.goingToSecondary,
-      secondaryChoice: state.secondaryChoice
+      secondaryChoice: state.secondaryChoice,
+      activeResult: state.activeResult
    }
 }
 
