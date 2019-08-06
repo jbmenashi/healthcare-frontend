@@ -25,7 +25,7 @@ class Symptoms extends Component {
    activate = (symp) => {
       this.props.activateSymptom(symp)
       const foundSymp = this.props.symptoms.find(symptom => symptom.title === symp)
-      this.props.activateResultsList(foundSymp.results)
+      this.props.activateResultsList(foundSymp.results.sort((a, b) => b.frequency - a.frequency))
    }
 
    render() {

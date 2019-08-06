@@ -8,6 +8,7 @@ const mapStateToProps = state => {
       activeSymptom: state.activeSymptom,
       activeResultsList: state.activeResultsList,
       userComplete: state.userComplete
+      // if this double renders, change it to "top is correct"
    }
 }
 
@@ -23,7 +24,7 @@ class TopDiagnosis extends Component {
       return (
          <div>
             <h1>You have selected {this.props.activeSymptom} - is the following diagnosis correct?</h1>
-            <h2>{this.props.activeResultsList.sort((a, b) => b.frequency - a.frequency)[0].title}</h2>
+            <h2>{this.props.activeResultsList[0].title}</h2>
                <Button.Group>
                   <Button onClick={() => this.props.completeUser()} color="green">Yes</Button>
                   <Button color="red">No</Button>
