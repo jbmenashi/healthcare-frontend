@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Symptoms from './Symptoms'
+import Symptoms from './components/Symptoms'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {

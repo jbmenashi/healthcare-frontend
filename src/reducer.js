@@ -23,7 +23,7 @@ function reducer(state = initialState, action) {
       case 'CHOOSE_SECONDARY':
          return {...state, secondaryChoice: true, activeResult: action.payload}
       case 'START_OVER':
-         return {...state, activeSymptom: null, activeResultsList: [], primaryChoice: false, goToSecondary: false, secondaryChoice: false, activeResult: null}
+         return {...state, activeSymptom: null, activeResultsList: [], primaryChoice: false, goingToSecondary: false, secondaryChoice: false, activeResult: null}
       default:
          return state
    }
