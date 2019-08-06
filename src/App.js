@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
    return {
-      symptoms: state.symptoms
+      symptoms: state.symptoms,
+      activeSymptom: state.activeSymptom
    }
 }
 
