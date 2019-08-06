@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import TopDiagnosis from './TopDiagnosis'
 
 const mapStateToProps = state => {
    return {
@@ -34,6 +35,7 @@ class Symptoms extends Component {
                options={symptomOptions}
                onChange={(event) => this.props.activateSymptom(event.target.innerText)}
                />
+               {this.props.activeSymptom ? <TopDiagnosis /> : <></>}
          </div>
       )
    }

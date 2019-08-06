@@ -1,6 +1,7 @@
 const initialState = {
    symptoms: [],
-   activeSymptom: null
+   activeSymptom: null,
+   activeResultsList: []
 }
 
 function reducer(state = initialState, action) {
@@ -9,6 +10,8 @@ function reducer(state = initialState, action) {
          return {...state, symptoms: action.payload}
       case 'ACTIVATE_SYMPTOM':
          return {...state, activeSymptom: action.payload}
+      case 'ACTIVATE_RESULTS_LIST':
+         return {...state, activeResultsList: action.payload}
       default:
          return state
    }
