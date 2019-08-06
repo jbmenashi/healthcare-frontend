@@ -7,7 +7,8 @@ const mapStateToProps = state => {
    return {
       symptoms: state.symptoms,
       activeSymptom: state.activeSymptom,
-      activeResultsList: state.activeResultsList
+      activeResultsList: state.activeResultsList,
+      topDiag: state.topDiag
    }
 }
 
