@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Symptoms from './Symptoms'
+import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = state => {
+   return {
+      symptoms: state.symptoms
+   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+   return {
+      loadSymptoms: (symptoms) => dispatch({type: 'LOAD_SYMPTOMS', payload: symptoms})
+   }
+}
+
+class App extends Component {
+
+   componentDidMount() {
+      fetch('http://localhost:3000/api/symptoms')
+      .then(res => res.json())
+      .then(data => {
+         this.props.loadSymptoms(data)
+      })
+   }
+   render() {
+      console.log(this.props)
+      return (
+         <div className="App">
+            <h1>Welcome to Buoy Health!</h1>
+            <h3>We're sorry you're not feeling well! Choose a symptom from the dropdown below:</h3>
+            <Symptoms/>
+         </div>
+      );
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
