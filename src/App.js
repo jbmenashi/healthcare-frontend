@@ -8,6 +8,9 @@ const mapStateToProps = state => {
       symptoms: state.symptoms,
       activeSymptom: state.activeSymptom,
       activeResultsList: state.activeResultsList,
+      primaryChoice: state.primaryChoice,
+      goingToSecondary: state.goingToSecondary,
+      secondaryChoice: state.secondaryChoice
    }
 }
 
