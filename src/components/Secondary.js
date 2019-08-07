@@ -6,6 +6,7 @@ import StartOver from './StartOver';
 const mapStateToProps = state => {
    return {
       activeResultsList: state.activeResultsList,
+      activeResult: state.activeResult,
       secondaryChoice: state.secondaryChoice
    }
 }
@@ -35,7 +36,10 @@ class Secondary extends Component {
    }
 
    render() {
-   const resultOptions = this.props.activeResultsList.slice(1).map(result => {
+   const index = this.props.activeResultsList.indexOf(this.props.activeResult)
+   const removeIndex = this.props.activeResultsList.slice(0, index).concat(this.props.activeResultsList.slice(index + 1, this.props.activeResultsList.length))
+
+   const resultOptions = removeIndex.map(result => {
       return {key: result.id, text: result.title, value: result.title}
    })
 

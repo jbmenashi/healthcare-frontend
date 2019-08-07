@@ -3,12 +3,6 @@ import './App.css';
 import Symptoms from './components/Symptoms'
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
-   return {
-      activeResult: state.activeResult
-   }
-}
-
 const mapDispatchToProps = dispatch => {
    return {
       loadSymptoms: (symptoms) => dispatch({type: 'LOAD_SYMPTOMS', payload: symptoms})
@@ -25,7 +19,6 @@ class App extends Component {
       })
    }
    render() {
-      console.log(this.props)
       return (
          <div className="App">
             <h1>Welcome to Buoy Health!</h1>
@@ -36,4 +29,4 @@ class App extends Component {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
