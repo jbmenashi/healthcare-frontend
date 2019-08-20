@@ -21,7 +21,7 @@ class Secondary extends Component {
    updateFrequency = (selection) => {
       const result = this.props.activeResultsList.find(result => result.title === selection)
       this.props.chooseSecondary(result)
-      fetch(`http://localhost:3000/api/results/${result.id}`, {
+      fetch(`http://localhost:8000/results/${result.id}/`, {
          method: 'PATCH',
          headers: {
             'Content-Type': 'application/json',

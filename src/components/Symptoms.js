@@ -29,6 +29,7 @@ class Symptoms extends Component {
    }
 
    render() {
+   console.log(this.props)
    const symptomOptions = this.props.symptoms.map(symp => {
       return {key: symp.id, text: symp.title, value: symp.title}
    })

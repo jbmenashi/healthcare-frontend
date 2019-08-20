@@ -12,9 +12,10 @@ const mapDispatchToProps = dispatch => {
 class App extends Component {
 
    componentDidMount() {
-      fetch('http://localhost:3000/api/symptoms')
+      fetch('http://localhost:8000/symptoms')
       .then(res => res.json())
       .then(data => {
+         console.log(data)
          this.props.loadSymptoms(data)
       })
    }

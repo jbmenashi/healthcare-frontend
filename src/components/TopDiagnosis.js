@@ -39,7 +39,7 @@ class TopDiagnosis extends Component {
 
    updateFrequency = (result) => {
       this.props.choosePrimary(result)
-      fetch(`http://localhost:3000/api/results/${result.id}`, {
+      fetch(`http://localhost:8000/results/${result.id}/`, {
          method: 'PATCH',
          headers: {
             'Content-Type': 'application/json',
